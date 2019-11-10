@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": [
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "no-console": "warn",
+        "no-redeclare": "error",
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": [
+            2,
+            {
+                "vars": "all",
+                "args": "after-used"
+            }
+        ],
+    }
+}

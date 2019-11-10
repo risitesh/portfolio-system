@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Portfolio Backend API",
+    "description": "Portfolio Backend API",
+    "license": {
+      "name": "UNLICENSED"
+    }
+  },
+  "host": "localhost:4000",
+  "tags": [
+    {
+      "name": "Portfolio",
+      "description": "Portfolio API's"
+    }
+  ],
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    },
+    "bearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+  }
+}

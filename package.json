@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-system",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "nodemon src/server.js"
+  },
+  "repository": "git@github.com:risitesh/portfolio-system.git",
+  "author": "Risitesh Biswal <risitesh.biswal14@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.2.4",
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0",
+    "express": "^4.17.1",
+    "express-validator": "^5.3.1",
+    "mongoose": "^5.7.9",
+    "nodemon": "^1.19.4",
+    "swagger-ui-express": "^4.1.2",
+    "wagner-core": "^0.2.0"
+  }
+}
