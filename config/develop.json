@@ -1,0 +1,5 @@
+{
+  "db": {
+    "url": "mongodb+srv://risitesh:Racer@14@cluster0-tt07h.mongodb.net/test?retryWrites=true&w=majority"
+  }
+}
