@@ -25,7 +25,10 @@ mongoose.connect(
 
 wagner.factory('mongoose', () => mongoose);
 
-require('./models/index')(wagner);
-require('./routes/index')(app, wagner);
+require('./utils/middleware')(wagner);
+require('./controllers')(wagner);
+require('./managers')(wagner);
+require('./models')(wagner);
+require('./routes')(app, wagner);
 
 module.exports = app;

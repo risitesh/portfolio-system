@@ -1,3 +1,5 @@
+const mongoose_delete = require('mongoose-delete');
+
 module.exports = (mongoose) => {
   const securitySchema = new mongoose.Schema({
     name: {
@@ -5,12 +7,15 @@ module.exports = (mongoose) => {
     },
     symbol: {
       type: String,
+      unique: true,
+      index: true,
     },
     price: {
-      type: String,
+      type: Number,
     },
   }, {
-    timestamps,
+    timestamps: true
   });
+  securitySchema.plugin(mongoose_delete, { overrideMethods: 'all', deletedAt: true });
   return mongoose.model('Security', securitySchema);
 };

@@ -1,14 +1,17 @@
 module.exports = (mongoose) => {
   const shareSchema = new mongoose.Schema({
     amount: {
-      type: String,
+      type: Number,
+    },
+    averageBuyPrice: {
+      type: Number,
     },
     securityId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Security',
     },
   }, {
-    timestamps,
+    timestamps: true
   });
-  return mongoose.model('Security', shareSchema);
+  return mongoose.model('Share', shareSchema);
 };
