@@ -4,7 +4,7 @@
   "main": "src/server.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon src/server.js"
+    "start": "NODE_ENV=develop nodemon src/server.js"
   },
   "repository": "git@github.com:risitesh/portfolio-system.git",
   "author": "Risitesh Biswal <risitesh.biswal14@gmail.com>",
