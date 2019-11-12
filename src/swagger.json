@@ -36,5 +36,226 @@
     "application/json"
   ],
   "paths": {
+    "/api/portfolio": {
+      "post": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "description": "Portfolio Create Data",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PortfolioCreate"
+            },
+            "required": true
+          }
+        ],
+        "description": "Create Portfolio",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "examples": {
+              "application/json": {
+                "message": "Created"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "Get All trade details",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": [
+                {
+                  "companyName": "Tata Consultancy Services",
+                  "companyShortName": "TCS",
+                  "currentShares": 3,
+                  "averageBuyPrice": 133.33
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/api/portfolio/{id}": {
+      "get": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "description": "Trade Id",
+            "in": "path",
+            "name": "id",
+            "default": "5dca6150f85dceb3006afec7",
+            "required": true
+          }
+        ],
+        "description": "Get partidular trade details",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": {
+                "companyName": "Tata Consultancy Services",
+                "companyShortName": "TCS",
+                "details": [
+                  {
+                    "state": "Created",
+                    "buyPrice": 100
+                  },
+                  {
+                    "state": "Trading Data",
+                    "amount": 2,
+                    "price": 150
+                  },
+                  {
+                    "state": "Updated",
+                    "amount": 3,
+                    "averageBuyPrice": 133.33
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "description": "Trade Id",
+            "in": "path",
+            "name": "id",
+            "default": "5dca6150f85dceb3006afec7",
+            "required": true
+          },
+          {
+            "description": "Portfolio Update Data",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PortfolioUpdate"
+            },
+            "required": true
+          }
+        ],
+        "description": "Update trade amount & price",
+        "responses": {
+          "202": {
+            "description": "Success",
+            "examples": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "description": "Trade Id",
+            "in": "path",
+            "name": "id",
+            "default": "5dca6150f85dceb3006afec7",
+            "required": true
+          }
+        ],
+        "description": "Soft delete trade",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/api/portfolio/returns": {
+      "get": {
+        "tags": [
+          "Portfolio"
+        ],
+        "description": "Get Cumulative Returns",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": {
+                "cumulativePrice": -99.99000000000004
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PortfolioCreate": {
+      "required": [
+        "name",
+        "symbol"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "Wipro Limited"
+        },
+        "symbol": {
+          "type": "string",
+          "default": "WIPRO"
+        },
+        "price": {
+          "type": "integer",
+          "default": 100
+        }
+      }
+    },
+    "PortfolioUpdate": {
+      "required": [
+        "amount",
+        "price"
+      ],
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "default": 5
+        },
+        "price": {
+          "type": "integer",
+          "default": 100
+        }
+      }
+    }
   }
 }
